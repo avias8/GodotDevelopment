@@ -1,44 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbw8j8pu4usmg"]
+[gd_scene load_steps=7 format=3 uid="uid://ckl8ovnw4r771"]
 
-[ext_resource type="Script" path="res://ProjectOne/JumpingBody3D.gd" id="1_gt450"]
-[ext_resource type="Material" uid="uid://bqmmyqoryc52w" path="res://ProjectOne/BoxMaterial.tres" id="2_813ty"]
-[ext_resource type="Material" uid="uid://dww43a455sf65" path="res://ProjectOne/FloorMaterial.tres" id="3_lyrjh"]
+[ext_resource type="Script" path="res://Scripts/JumpingBody3D.gd" id="1_eaw6o"]
+[ext_resource type="Material" uid="uid://bqmmyqoryc52w" path="res://Materials/BoxMaterial.tres" id="2_bqkhe"]
+[ext_resource type="Material" uid="uid://dww43a455sf65" path="res://Materials/FloorMaterial.tres" id="3_6h33r"]
 
-[sub_resource type="GDScript" id="GDScript_euamr"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_y36uf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w08fc"]
+[sub_resource type="BoxMesh" id="BoxMesh_n4v6n"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yxd7p"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v1eq1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3feku"]
 size = Vector3(5, 0.05, 5)
 
-[node name="BasicScene" type="Node3D"]
-script = SubResource("GDScript_euamr")
+[node name="FloorAndBox" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(0.999844, -0.0151927, 0.00902486, 0.0153259, 0.999772, -0.0148737, -0.00879682, 0.0150097, 0.999849, 0.00936139, 1.44209, -0.0332913)
-script = ExtResource("1_gt450")
+script = ExtResource("1_eaw6o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("BoxShape3D_w08fc")
+shape = SubResource("BoxShape3D_y36uf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, -5.28876e-05, 2.77376e-05, 5.28438e-05, 1, -6.36382e-05, -2.76938e-05, 6.36773e-05, 1, 0, 0, 0)
-material_override = ExtResource("2_813ty")
-mesh = SubResource("BoxMesh_yxd7p")
+material_override = ExtResource("2_bqkhe")
+mesh = SubResource("BoxMesh_n4v6n")
 
 [node name="Floor" type="RigidBody3D" parent="."]
 gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_v1eq1")
+shape = SubResource("BoxShape3D_3feku")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(5, 0, 0, 0, 0.05, 0, 0, 0, 5, 0, 0, 0)
-material_override = ExtResource("3_lyrjh")
-mesh = SubResource("BoxMesh_yxd7p")
+material_override = ExtResource("3_6h33r")
+mesh = SubResource("BoxMesh_n4v6n")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999844, -0.0151928, 0.00902485, 0.0153259, 0.999772, -0.0148738, -0.00879682, 0.0150097, 0.999849, 0.00786698, 0.58093, 3.3385)
