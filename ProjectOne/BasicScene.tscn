@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbw8j8pu4usmg"]
+
+[ext_resource type="Script" path="res://ProjectOne/JumpingBody3D.gd" id="1_gt450"]
+[ext_resource type="Material" uid="uid://bqmmyqoryc52w" path="res://ProjectOne/BoxMaterial.tres" id="2_813ty"]
+[ext_resource type="Material" uid="uid://dww43a455sf65" path="res://ProjectOne/FloorMaterial.tres" id="3_lyrjh"]
+
+[sub_resource type="GDScript" id="GDScript_euamr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w08fc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxd7p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1eq1"]
+size = Vector3(5, 0.05, 5)
+
+[node name="BasicScene" type="Node3D"]
+script = SubResource("GDScript_euamr")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.999844, -0.0151927, 0.00902486, 0.0153259, 0.999772, -0.0148737, -0.00879682, 0.0150097, 0.999849, 0.00936139, 1.44209, -0.0332913)
+script = ExtResource("1_gt450")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_w08fc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, -5.28876e-05, 2.77376e-05, 5.28438e-05, 1, -6.36382e-05, -2.76938e-05, 6.36773e-05, 1, 0, 0, 0)
+material_override = ExtResource("2_813ty")
+mesh = SubResource("BoxMesh_yxd7p")
+
+[node name="Floor" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_v1eq1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(5, 0, 0, 0, 0.05, 0, 0, 0, 5, 0, 0, 0)
+material_override = ExtResource("3_lyrjh")
+mesh = SubResource("BoxMesh_yxd7p")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999844, -0.0151928, 0.00902485, 0.0153259, 0.999772, -0.0148738, -0.00879682, 0.0150097, 0.999849, 0.00786698, 0.58093, 3.3385)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.426861, -0.824512, 0.371444, 0.621993, 0.565845, 0.541243, -0.656441, 3.70325e-08, 0.754377, 4.25386, 5.92061, 5.63243)
