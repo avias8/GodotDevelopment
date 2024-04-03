@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3D Tower Defense"
-run/main_scene="res://TDWorld.tscn"
+run/main_scene="res://TDWorld2.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
