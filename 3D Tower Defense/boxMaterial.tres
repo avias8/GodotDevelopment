@@ -1,3 +1,8 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8v167gheiop8"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://w571tunkwuli"]
+
+[ext_resource type="Texture2D" uid="uid://bb1080vuooavf" path="res://PNG_Tiled_Texture_Wooden_Box.png" id="1_jaa7h"]
 
 [resource]
+albedo_texture = ExtResource("1_jaa7h")
+uv1_scale = Vector3(4, 4, 4)
+uv2_scale = Vector3(2, 2, 2)
