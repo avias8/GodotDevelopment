@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1jf15shjcmyl"]
 
-[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://BoxMaterial.tres" id="1_0wib6"]
+[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://boxMaterial.tres" id="1_0wib6"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_gwwip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bx76"]
@@ -50,6 +50,26 @@ material_override = ExtResource("1_0wib6")
 mesh = SubResource("BoxMesh_tafrm")
 
 [node name="CubeCollisionShape3D" type="CollisionShape3D" parent="Cube"]
+shape = SubResource("BoxShape3D_gk5rj")
+
+[node name="Cube2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15745, 0.83312, -2.65126)
+
+[node name="CubeMesh" type="MeshInstance3D" parent="Cube2"]
+material_override = ExtResource("1_0wib6")
+mesh = SubResource("BoxMesh_tafrm")
+
+[node name="CubeCollisionShape3D" type="CollisionShape3D" parent="Cube2"]
+shape = SubResource("BoxShape3D_gk5rj")
+
+[node name="Cube3" type="RigidBody3D" parent="."]
+transform = Transform3D(0.429187, 0, -0.903215, 0, 1, 0, 0.903215, 0, 0.429187, -2.33765, 2.23031, -2.63852)
+
+[node name="CubeMesh" type="MeshInstance3D" parent="Cube3"]
+material_override = ExtResource("1_0wib6")
+mesh = SubResource("BoxMesh_tafrm")
+
+[node name="CubeCollisionShape3D" type="CollisionShape3D" parent="Cube3"]
 shape = SubResource("BoxShape3D_gk5rj")
 
 [node name="Player" type="CharacterBody3D" parent="."]

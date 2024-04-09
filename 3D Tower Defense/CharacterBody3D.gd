@@ -63,7 +63,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY) # Rotating around vertical y-axis to turn camera left and right
 		camera.rotate_x(-event.relative.y * SENSITIVITY) # Rotating around horizontal x-axis to turn camera up and down
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60)) # Limiting up/down camera tilt
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60)) # Limiting up/down camera tilt
 		
 # Head bob function
 func _headbob(time) -> Vector3:
