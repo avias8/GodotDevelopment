@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1jf15shjcmyl"]
+[gd_scene load_steps=12 format=3 uid="uid://d1jf15shjcmyl"]
 
-[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://boxMaterial.tres" id="1_0wib6"]
+[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://BoxMaterial.tres" id="1_0wib6"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_gwwip"]
-[ext_resource type="PackedScene" uid="uid://5mqkt07ulp8t" path="res://Assets/fallen-tree/source/poly.glb" id="3_gnppf"]
+[ext_resource type="AudioStream" uid="uid://c6lsjvbyehml4" path="res://Music/FunkyLevelLoop.wav" id="4_72k2c"]
+[ext_resource type="PackedScene" uid="uid://bd2pbno2m54fs" path="res://Assets/burgerpiz/source/BurgerPiz/Models/BurgerPiz.glb" id="4_im8ln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bx76"]
 sky_top_color = Color(0, 0.380392, 0.992157, 1)
@@ -39,7 +40,8 @@ shadow_enabled = true
 environment = SubResource("Environment_npbgg")
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
+transform = Transform3D(13.245, 0, 0, 0, 2, 0, 0, 0, 7.11109, -45.8064, -1, 0)
+visible = false
 use_collision = true
 size = Vector3(30, 0.001, 30)
 
@@ -87,5 +89,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Player/Head"]
 
-[node name="poly" parent="." instance=ExtResource("3_gnppf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="BurgerPiz2" parent="." instance=ExtResource("4_im8ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.438, -1, -35.684)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_72k2c")
+autoplay = true
