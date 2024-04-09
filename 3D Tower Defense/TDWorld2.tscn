@@ -17,7 +17,12 @@ sky_material = SubResource("ProceduralSkyMaterial_6bx76")
 [sub_resource type="Environment" id="Environment_npbgg"]
 background_mode = 2
 sky = SubResource("Sky_eooft")
+ambient_light_color = Color(0, 0, 0.862745, 1)
 tonemap_mode = 2
+fog_enabled = true
+fog_density = 0.02
+fog_height = 0.35
+fog_height_density = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_tafrm"]
 
@@ -44,6 +49,31 @@ transform = Transform3D(13.245, 0, 0, 0, 2, 0, 0, 0, 7.11109, -45.8064, -1, 0)
 visible = false
 use_collision = true
 size = Vector3(30, 0.001, 30)
+
+[node name="BurgerPiz" parent="." instance=ExtResource("4_im8ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.438, -1, -35.684)
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(13.245, 0, 0, 0, 2, 0, 0, 0, 7.11109, -430.899, -1, 0)
+visible = false
+use_collision = true
+size = Vector3(30, 0.001, 30)
+
+[node name="BurgerPiz2" parent="." instance=ExtResource("4_im8ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -401.531, -1, -35.684)
+
+[node name="Floor3" type="CSGBox3D" parent="."]
+transform = Transform3D(13.245, 0, 0, 0, 2, 0, 0, 0, 7.11109, 344.288, -1, 0)
+visible = false
+use_collision = true
+size = Vector3(30, 0.001, 30)
+
+[node name="BurgerPiz3" parent="." instance=ExtResource("4_im8ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 373.656, -1, -35.684)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_72k2c")
+autoplay = true
 
 [node name="Cube" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -3)
@@ -88,10 +118,4 @@ shape = SubResource("ConvexPolygonShape3D_x05h1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Player/Head"]
-
-[node name="BurgerPiz2" parent="." instance=ExtResource("4_im8ln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.438, -1, -35.684)
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_72k2c")
-autoplay = true
+far = 250.0

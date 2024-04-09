@@ -67,7 +67,7 @@ func _unhandled_input(event):
 		
 # Head bob function
 func _headbob(time) -> Vector3:
-	var position = Vector3.ZERO
-	position.y = sin(time + bobFreq) * bobAmp
-	position.x = cos(time * bobFreq/2) * bobAmp
-	return position
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(time + bobFreq) * bobAmp
+	headbob_position.x = cos(time * bobFreq/2) * bobAmp
+	return headbob_position
