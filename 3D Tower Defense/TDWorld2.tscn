@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1jf15shjcmyl"]
+[gd_scene load_steps=11 format=3 uid="uid://d1jf15shjcmyl"]
 
 [ext_resource type="Material" uid="uid://w571tunkwuli" path="res://boxMaterial.tres" id="1_0wib6"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_gwwip"]
+[ext_resource type="PackedScene" uid="uid://5mqkt07ulp8t" path="res://Assets/fallen-tree/source/poly.glb" id="3_gnppf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bx76"]
 sky_top_color = Color(0, 0.380392, 0.992157, 1)
@@ -85,3 +86,6 @@ shape = SubResource("ConvexPolygonShape3D_x05h1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Player/Head"]
+
+[node name="poly" parent="." instance=ExtResource("3_gnppf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
