@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d1jf15shjcmyl"]
 
-[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://BoxMaterial.tres" id="1_0wib6"]
+[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://boxMaterial.tres" id="1_0wib6"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_gwwip"]
 [ext_resource type="AudioStream" uid="uid://c6lsjvbyehml4" path="res://Music/FunkyLevelLoop.wav" id="4_72k2c"]
 [ext_resource type="PackedScene" uid="uid://bd2pbno2m54fs" path="res://Assets/burgerpiz/source/BurgerPiz/Models/BurgerPiz.glb" id="4_im8ln"]
