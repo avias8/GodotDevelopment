@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1jf15shjcmyl"]
+[gd_scene load_steps=16 format=3 uid="uid://d1jf15shjcmyl"]
 
-[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://BoxMaterial.tres" id="1_0wib6"]
+[ext_resource type="Material" uid="uid://w571tunkwuli" path="res://boxMaterial.tres" id="1_0wib6"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_gwwip"]
 [ext_resource type="AudioStream" uid="uid://c6lsjvbyehml4" path="res://Music/FunkyLevelLoop.wav" id="4_72k2c"]
 [ext_resource type="PackedScene" uid="uid://bd2pbno2m54fs" path="res://Assets/burgerpiz/source/BurgerPiz/Models/BurgerPiz.glb" id="4_im8ln"]
+[ext_resource type="AudioStream" uid="uid://co6t1nd4j78c4" path="res://Music/Jec.wav" id="5_1k8e1"]
+[ext_resource type="AudioStream" uid="uid://bjaj6cumqowu5" path="res://Music/+Pe4.mp3" id="6_dkei5"]
+[ext_resource type="AudioStream" uid="uid://6iyongjbq7la" path="res://Music/La + Av.mp3" id="7_qvw23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6bx76"]
 sky_top_color = Color(0, 0.380392, 0.992157, 1)
@@ -13,11 +16,15 @@ ground_horizon_color = Color(0.585294, 0.805882, 0.831373, 1)
 
 [sub_resource type="Sky" id="Sky_eooft"]
 sky_material = SubResource("ProceduralSkyMaterial_6bx76")
+radiance_size = 4
 
 [sub_resource type="Environment" id="Environment_npbgg"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0, 0.909804, 0.890196, 0.607843)
+background_energy_multiplier = 0.4
 sky = SubResource("Sky_eooft")
-ambient_light_color = Color(0, 0, 0.862745, 1)
+ambient_light_color = Color(0.741176, 0.823529, 0.231373, 0.929412)
+ambient_light_sky_contribution = 0.82
 tonemap_mode = 2
 fog_enabled = true
 fog_density = 0.02
@@ -33,12 +40,14 @@ fog_height_density = 1.0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x05h1"]
 points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkfop"]
+size = Vector3(24.1398, 5.90619, 39.9393)
+
 [node name="World" type="Node3D"]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.720551, -0.611668, 0.3266, 0, 0.471012, 0.882127, -0.693402, 0.635617, -0.339388, 0, 0, 0)
-light_color = Color(0.901961, 0.94902, 0.647059, 1)
-light_energy = 1.5
+transform = Transform3D(-0.720551, -0.611668, 0.326601, 0, 0.471012, 0.882127, -0.693402, 0.635617, -0.339388, 0, 0, 0)
+light_color = Color(0.498039, 0.796078, 0.619608, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -73,7 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 373.656, -1, -35.684)
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_72k2c")
-autoplay = true
 
 [node name="Cube" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -3)
@@ -119,3 +127,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Player/Head"]
 far = 250.0
+
+[node name="SpawnBuilding" type="Area3D" parent="."]
+visible = false
+
+[node name="SpawnBuildingMusic" type="AudioStreamPlayer3D" parent="SpawnBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8957, 1.97446, -25.9743)
+stream = ExtResource("4_72k2c")
+unit_size = 0.1
+autoplay = true
+
+[node name="SpawnBuildingCollision" type="CollisionShape3D" parent="SpawnBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8957, 1.97446, -25.9743)
+shape = SubResource("BoxShape3D_kkfop")
+
+[node name="BackMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.615, 0, 0)
+stream = ExtResource("5_1k8e1")
+unit_size = 0.1
+autoplay = true
+
+[node name="FrontMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.827, 0, 0)
+stream = ExtResource("6_dkei5")
+unit_size = 0.1
+autoplay = true
+
+[node name="LeftSideMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8957, 1.97446, 195.012)
+stream = ExtResource("7_qvw23")
+unit_size = 0.1
+autoplay = true
